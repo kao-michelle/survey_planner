@@ -115,11 +115,11 @@ def downlinking(
             downlink_windows.list.pop(0)
             downlink_windows.update_num()
 
-            print(f"\033[1mDownlinking at {now}\033[0m")
-            print(f"spends {print_time(data_downlinked / downlink_rate)} "
-                  f"of the {print_time(downlink_time)} total pass time downlinking")
-            print(f"Data downlinked: {data_downlinked:.2f} GB")
-            print(f"Remaining data onboard: {Data_Onboard:.2f} GB")
+            # print(f"\033[1mDownlinking at {now}\033[0m")
+            # print(f"spends {print_time(data_downlinked / downlink_rate)} "
+            #       f"of the {print_time(downlink_time)} total pass time downlinking")
+            # print(f"Data downlinked: {data_downlinked:.2f} GB")
+            # print(f"Remaining data onboard: {Data_Onboard:.2f} GB")
 
             # Document the amount of data onboard after downlinking
             data_tracker["time"].append(now)

@@ -513,7 +513,8 @@ class SmallSurvey(Survey):
                 - dithers
                 - data readouts 
                 - data downlinks
-        And tracks the data accumulated onboard throughout the observation. 
+        And tracks the data accumulated onboard as well as the solar arrays' power 
+        generation throughout the observation. 
 
         The function calculates and outputs the survey's observing efficiency and
         provides a breakdown of total clock time allocations in a dictionary, including:
@@ -679,11 +680,11 @@ class SmallSurvey(Survey):
                     # and merge pass times over different ground stations if they overlap
                     downlink_windows.merge()
                     runtime = timeit.default_timer() - search_code_start
-                    print(
-                        f"There are {downlink_windows.num} downlink windows from "
-                        f"{start_search} to {end_search}"
-                    )
-                    print("runtime:", print_time(runtime))
+                    # print(
+                    #     f"There are {downlink_windows.num} downlink windows from "
+                    #     f"{start_search} to {end_search}"
+                    # )
+                    # print("runtime:", print_time(runtime))
         
                 # Select the tile in snake-scan order
                 tile = tiles.pop(0)
@@ -1476,7 +1477,8 @@ class WideSurvey(Survey):
                 - dithers
                 - data readouts 
                 - data downlinks
-        And tracks the data accumulated onboard throughout the observation. 
+        And tracks the data accumulated onboard as well as the solar arrays' power 
+        generation throughout the observation.  
 
         The function determines the most efficient observing sequence to maximize time 
         spent on the survey during the observing season, aiming to observe as many tiles
@@ -1683,11 +1685,11 @@ class WideSurvey(Survey):
                     # and merge pass times over different ground stations if they overlap
                     downlink_windows.merge()
                     runtime = timeit.default_timer() - search_code_start
-                    print(
-                        f"There are {downlink_windows.num} downlink windows from "
-                        f"{start_search} to {end_search}"
-                    )
-                    print("runtime:", print_time(runtime))
+                    # print(
+                    #     f"There are {downlink_windows.num} downlink windows from "
+                    #     f"{start_search} to {end_search}"
+                    # )
+                    # print("runtime:", print_time(runtime))
         
                 # Select tile and define slew
                 if tile_num == 0: # first tile of the survey
