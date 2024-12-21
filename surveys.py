@@ -195,7 +195,6 @@ class SmallSurvey(Survey):
         # Imaging specifications
         self.exposure = exposure # exposure time per tile 
         self.subexposure_num = subexposure_num # depends on the dither pattern
-        self.subexposure = exposure / subexposure_num # exposure time per subexposures
        
         # Opertion task times (in seconds)
         self.settle = settle # settle time + FGS(Fine Guidance Sensors) scan ID time
@@ -233,6 +232,48 @@ class SmallSurvey(Survey):
 
     
     @property
+    def exposure(self):
+        """
+        Get the current exposure time per tile.
+        """
+        return self._exposure
+
+    
+    @exposure.setter
+    def exposure(self, value):
+        """
+        Set the exposure per tile to `value`.
+        """
+        self._exposure = value
+
+    
+    @property
+    def subexposure_num(self):
+        """
+        Get the number of subexposures per tile 
+        (which depends on the dither pattern).
+        """
+        return self._subexposure_num
+
+    
+    @subexposure_num.setter
+    def subexposure_num(self, value):
+        """
+        Set the number of subexposures per tile to `value`. 
+        """
+        self._subexposure_num = value
+
+    
+    @property
+    def subexposure(self):
+        """
+        Calculate the exposure time per subexposure based on
+        the set `exposure` and `subexposure_num` attributes.
+        """
+        return self._exposure / self._subexposure_num
+
+    
+    @property
     def downlink_freq(self):
         """
         Get the current downlink frequency band.
@@ -267,7 +308,7 @@ class SmallSurvey(Survey):
                 f"in the ground_stations_kwargs dictionary."
             )
         
-        # Update `downlink_freq`
+        # Set `downlink_freq`
         self._downlink_freq = new_freq
         
         # Update dependent attributes
@@ -1296,7 +1337,6 @@ class WideSurvey(Survey):
         # Imaging specifications
         self.exposure = exposure # exposure time per tile 
         self.subexposure_num = subexposure_num # depends on the dither pattern
-        self.subexposure = exposure / subexposure_num # exposure time per subexposures
        
         # Opertion task times (in seconds)
         self.settle = settle # settle time + FGS(Fine Guidance Sensors) scan ID time
@@ -1331,6 +1371,48 @@ class WideSurvey(Survey):
         self.tile_shapes = None # a list of tile shapes in snake scan sequence
         self.tile_bins = None # a list of bins
         self.tile_target_bins = None # stores a list of tile Target objects in bins
+
+    
+    @property
+    def exposure(self):
+        """
+        Get the current exposure time per tile.
+        """
+        return self._exposure
+
+    
+    @exposure.setter
+    def exposure(self, value):
+        """
+        Set the exposure per tile to `value`.
+        """
+        self._exposure = value
+
+    
+    @property
+    def subexposure_num(self):
+        """
+        Get the number of subexposures per tile 
+        (which depends on the dither pattern).
+        """
+        return self._subexposure_num
+
+    
+    @subexposure_num.setter
+    def subexposure_num(self, value):
+        """
+        Set the number of subexposures per tile to `value`. 
+        """
+        self._subexposure_num = value
+
+    
+    @property
+    def subexposure(self):
+        """
+        Calculate the exposure time per subexposure based on
+        the set `exposure` and `subexposure_num` attributes.
+        """
+        return self._exposure / self._subexposure_num
 
     
     @property
