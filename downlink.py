@@ -64,7 +64,7 @@ def downlinking(
         If the onboard data exceeds the storage capacity.
     """
     # Document the amount of data currently onboard
-    data_tracker["time"].append(Now)
+    data_tracker["time"].append(Now.iso)
     data_tracker["data_onboard"].append(Data_Onboard)
 
     if Data_Onboard > onboard_data_cap:
@@ -122,7 +122,7 @@ def downlinking(
             # print(f"Remaining data onboard: {Data_Onboard:.2f} GB")
 
             # Document the amount of data onboard after downlinking
-            data_tracker["time"].append(now)
+            data_tracker["time"].append(now.iso)
             data_tracker["data_onboard"].append(Data_Onboard)
 
     return Data_Onboard

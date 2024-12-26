@@ -583,9 +583,9 @@ class SmallSurvey(Survey):
         Returns
         -------
         obs_results : dict of dict
-            A nested dictionary that compiles the survey's results on each observation 
-            day. Each `start_time` is represented as a key in the outer dictionary, with 
-            the value being a dictionary that documents the corresponding observation 
+            A nested dictionary that compiles the survey's results for each observation day. 
+            Each `start_time` is converted to a `str` to serve as the key of the outer 
+            dictionary. The value is a dictionary documenting the corresponding observation 
             results with the following keys:
                 - "obs_efficiency": float
                     The observing efficiency (%).
@@ -613,8 +613,9 @@ class SmallSurvey(Survey):
                     A dictionary structured as {"time":[], "data_onboard":[]} that tracks
                     the amount of data onboard (in GB) at different times throughout the 
                     observation. 
-                        - "time": list of Astropy Time objects 
-                            The timestamps when the data onboard is recorded.
+                        - "time": list of str
+                            The timestamps when the data onboard is recorded, formatted in 
+                            ISO 8601: "YYYY-MM-DD HH:MM:SS.sss…".
                         - "data_onboard": list of floats 
                             The amount of data onboard (in GB) at each timestamp.
                 - "obs_sequence" : list
@@ -1115,7 +1116,7 @@ class SmallSurvey(Survey):
                 prev_internal_data_check = Now
 
                 # Document the amount of data currently onboard
-                data_tracker["time"].append(Now)
+                data_tracker["time"].append(Now.iso)
                 data_tracker["data_onboard"].append(Data_Onboard)
 
             # Results of the current observation day
@@ -1151,7 +1152,7 @@ class SmallSurvey(Survey):
             print()
 
             # Stores the results
-            obs_results[start_time] = {
+            obs_results[start_time.iso] = {
                 "obs_efficiency": obs_efficiency,
                 "total_clock_time": Total_Clock_Time,
                 "other_survey_time": Other_Survey_Time,
@@ -1603,8 +1604,8 @@ class WideSurvey(Survey):
         -------
         obs_results : dict of dict
             A nested dictionary that compiles the observation results accumulated after
-            the completion of each bin. Each bin is represented as a key in the outer 
-            dictionary, with the value being a dictionary that documents the current 
+            the completion of each bin. Each bin is represented as a `str` to serve as the 
+            key of the outer dictionary. The value is a dictionary documenting the current 
             observation results with the following keys:
                 - "obs_efficiency": float
                     The observing efficiency (%).
@@ -1634,8 +1635,9 @@ class WideSurvey(Survey):
         data_tracker : dict
             A dictionary structured as {"time":[], "data_onboard":[]} that tracks the
             amount of data onboard (in GB) at different times throughout the observation. 
-                - "time": list of Astropy Time objects 
-                    The timestamps when the data onboard is recorded.
+                - "time": list of str
+                    The timestamps when the data onboard is recorded, formatted in 
+                    ISO 8601: "YYYY-MM-DD HH:MM:SS.sss…".
                 - "data_onboard": list of floats 
                     The amount of data onboard (in GB) at each timestamp.
 
@@ -2284,7 +2286,7 @@ class WideSurvey(Survey):
                 prev_internal_data_check = Now
         
                 # Document the amount of data currently onboard
-                data_tracker["time"].append(Now)
+                data_tracker["time"].append(Now.iso)
                 data_tracker["data_onboard"].append(Data_Onboard)
                 
             # After a bin is completed, switch the tiling direction
