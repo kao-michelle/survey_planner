@@ -1,0 +1,9 @@
+astropy==7.0.0
+ipython==8.12.3
+matplotlib==3.10.0
+numpy==2.2.1
+pyquaternion==0.9.9
+Requests==2.32.3
+sgp4==2.23
+Shapely==2.0.6
+skyfield==1.49
