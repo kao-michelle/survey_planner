@@ -820,7 +820,7 @@ class Tiling():
     
         # Save or display the figure
         if save_figure:
-            plt.savefig('plot_tiles.pdf')
+            plt.savefig('plot_snake_scan.pdf')
         else:
             plt.show()
         
@@ -984,6 +984,6 @@ class Tiling():
     
         # Save or display the figure
         if save_figure:
-            plt.savefig('plot_tiles.pdf')
+            plt.savefig('plot_bins.pdf')
         else:
             plt.show()
