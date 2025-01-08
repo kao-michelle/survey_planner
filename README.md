@@ -16,6 +16,7 @@ Finally, it outputs the survey's observing efficiency and provides a breakdown o
   - Solar system objects
   - Earth-orbiting targets
   - Earth-fixed targets
+- Determines the optimal tiling strategy for surveying a continuous area of the sky.
 - Schedules tasks to maximize survey observing efficiency.
 - Incorporates key subsystems:
     - Attitude determination and control
