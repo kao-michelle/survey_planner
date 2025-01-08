@@ -10,16 +10,17 @@ It also tracks solar array power generation at each spacecraft attitude and moni
 Finally, it outputs the survey's observing efficiency and provides a breakdown of time allocation across all tasks.
 
 ### Features
-- Includes a built-in Earth satellite orbit propagator for orbital simulations.
+- Includes a built-in Earth satellite orbit propagator for orbital simulations of the telescope.
 - Supports four target types:
   - Inertially-fixed targets
-  - Solar System objects
+  - Solar system objects
   - Earth-orbiting targets
-  - Earth-fixed targets.
-- Schedules tasks to optimize survey observing efficiency, while incorporating key subsystems, including:
-    - Attitude determination and control.
-    - Communication (data downlinks).
-    - Power generation and battery monitoring.
+  - Earth-fixed targets
+- Schedules tasks to maximize survey observing efficiency.
+- Incorporates key subsystems:
+    - Attitude determination and control
+    - Communication (data downlinks)
+    - Power generation and battery monitoring
 
 ### Dependencies
 This project requires the following Python packages:
