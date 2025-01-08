@@ -1,13 +1,14 @@
 ## Survey Planning and Scheduling Tool for Space Telescope Missions
 This python package is under active development.
 
-This planning and scheduling tool is built for the preparation of the CASTOR mission as it enters Phase A. 
+This planning and scheduling tool is built for the preparation of the [CASTOR](https://www.castormission.org/) mission as it enters Phase A. 
 The tool evaluates the feasibility of a space telescope's survey requirements and provides recommendations for alternative observation strategies. 
 Given the satellite's orbital parameters and survey specifications, the tool simulates the entire observation process for a single survey visit. 
 It schedules exposure (open-shutter) times while accounting for target visibility, and schedules operational tasks including spacecraft slewing and settling, 
 guide star acquisition, dithering, and data readouts. Additionally, the tool monitors onboard data accumulation and schedules data downlinks accordingly. 
 It also tracks solar array power generation at each spacecraft attitude and monitors the onboard battery level throughout the observation. 
 Finally, it outputs the survey's observing efficiency and provides a breakdown of time allocation across all tasks.
+A demontration of the tool can be found in [survey_implementation.ipynb](survey_implementation.ipynb).
 
 ### Features
 - Includes a built-in Earth satellite orbit propagator for orbital simulations of the telescope.
